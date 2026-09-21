@@ -1,6 +1,14 @@
 # Changelog
 
-## Unreleased — v2 workflow
+## Unreleased — v3 workflow
+
+- เพิ่ม LEAN_SCOPE เพื่อกำหนด deliverable, must-have และขอบเขตเครดิตก่อนสร้าง
+- เพิ่ม CONTENT_PLAN สำหรับ Hook, Conflict, Reveal, Cliffhanger, Caption และ CTA
+- เพิ่ม EVIDENCE_GATE ป้องกันการรายงาน ACCEPTED, EXPORTED หรือ PUBLISHED โดยไม่มีหลักฐาน
+- เพิ่ม Completion report แบบ 4 ส่วนและ stop conditions
+- เพิ่ม unit tests สำหรับหลักฐานปิดงานและ URL ของโพสต์จริง
+
+## v2 workflow
 
 - เพิ่มโหมด Fiction และ Documentary พร้อม source ledger และ disclosure ภาพจำลอง
 - ทำ duration plan ให้ยืดหยุ่นตามความยาวและโมเดล แทนการยึด 6 × 8 วินาทีทุกงาน
