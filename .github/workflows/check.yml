@@ -13,5 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Run checker unit tests
+        run: python3 -m unittest discover -s tests -v
       - name: Validate docs, examples and assets
         run: python3 scripts/check_repo.py

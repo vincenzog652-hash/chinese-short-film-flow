@@ -7,7 +7,7 @@ description: Plan Chinese vertical short dramas in Thai for ChatGPT or Claude wi
 
 Use the repository root three levels above this directory. Read `../../../WORKFLOW.md` and `../../../prompts/MASTER-PROMPT.md`. Copy `../../../templates/PRODUCTION.md` for a new story. See `../../../examples/jade-seal-48s.md` for the complete example and `../../../docs/GOOGLE-FLOW.md` for production steps.
 
-Start with the user's brief, preserve their choices, lock character and scene references, then produce self-contained image and video prompts. Prefer one speaker per shot and exact Thai dialogue. Distinguish planned edit duration from model-supported generation duration.
+Start with the user's brief and select Fiction or Documentary. For Documentary, read `../../../docs/DOCUMENTARY.md`, build a source ledger, and label reenactments. Preserve the user's choices, lock character and scene references, then produce self-contained image and video prompts. Prefer one speaker per shot and exact Thai dialogue. Distinguish planned edit duration from model-supported generation duration and actual exported duration.
 
 If actual browser tools are available, read `../../../prompts/OPERATOR.md` and operate within the user's authorization and credit budget. Otherwise provide manual copy-paste instructions. Repair only failed shots using `../../../prompts/REPAIR.md`. Never describe an unrendered or unreviewed output as finished.
 
