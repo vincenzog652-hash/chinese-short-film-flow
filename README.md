@@ -21,7 +21,7 @@
 
 ---
 
-> **เริ่มได้โดยไม่เขียนโค้ด** — ใช้ชุดพรอมป์ต์นี้วางแผนใน ChatGPT หรือ Claude แล้วนำไปสร้างสื่อใน Google Flow การเจนวิดีโอต้องมีบัญชีและเครดิตตามบริการที่ใช้ เวอร์ชัน v2 รองรับทั้ง Fiction และ Documentary พร้อม duration plan และ credit log
+> **เริ่มได้โดยไม่เขียนโค้ด** — ใช้ชุดพรอมป์ต์นี้วางแผนใน ChatGPT หรือ Claude แล้วนำไปสร้างสื่อใน Google Flow การเจนวิดีโอต้องมีบัญชีและเครดิตตามบริการที่ใช้ เวอร์ชัน v3 รองรับ Fiction และ Documentary พร้อม duration plan, credit log, Lean Scope, Content Plan และ Evidence Gate
 
 ## ในชุดนี้มีอะไร
 
@@ -31,7 +31,7 @@
 
 เหมาะกับครีเอเตอร์ที่อยากทดลองหนังจีนแนวตั้ง ครูที่ต้องการตัวอย่างสอน และคนทำงานที่อยากใช้บรีฟเดียวกันข้าม ChatGPT/Claude
 
-งานเรื่องจริงหรือสารคดีให้เปิด [กติกา Source ledger และภาพจำลอง](docs/DOCUMENTARY.md) ก่อนเขียนบท ส่วนประวัติการปรับ v2 ดูได้ใน [CHANGELOG](CHANGELOG.md)
+งานเรื่องจริงหรือสารคดีให้เปิด [กติกา Source ledger และภาพจำลอง](docs/DOCUMENTARY.md) ก่อนเขียนบท ใช้ [Workflow V3](docs/WORKFLOW-V3.md) เมื่อต้องการควบคุมขอบเขต วาง Hook/Caption และบังคับตรวจหลักฐานก่อนรายงานว่าเสร็จ ส่วนประวัติการปรับดูได้ใน [CHANGELOG](CHANGELOG.md)
 
 <a id="quick-start"></a>
 
@@ -131,7 +131,7 @@ cd chinese-short-film-flow
 python3 scripts/check_repo.py
 ```
 
-ชุดตรวจเช็กไฟล์อ้างอิงใน Markdown/HTML, code fences, ภาพปก PNG, storyboard 6 ช็อตต่อเนื่อง 48 วินาที บท/ผู้พูดที่ตรงกับพรอมป์ต์ และ marker สำคัญของ v2 พร้อม unit tests สำหรับ timeline บทพูด และผู้พูด GitHub Actions รันชุดตรวจเดียวกันเมื่อมี push หรือ pull request
+ชุดตรวจเช็กไฟล์อ้างอิงใน Markdown/HTML, code fences, ภาพปก PNG, storyboard 6 ช็อตต่อเนื่อง 48 วินาที บท/ผู้พูดที่ตรงกับพรอมป์ต์ และ marker สำคัญของ v3 พร้อม unit tests สำหรับ timeline บทพูด ผู้พูด และหลักฐานก่อนปิดงาน GitHub Actions รันชุดตรวจเดียวกันเมื่อมี push หรือ pull request
 
 **การตรวจเอกสารไม่ได้ยืนยันคุณภาพวิดีโอ** — ผลทดสอบจริงและส่วนที่ยังต้องให้คนตรวจอยู่ใน [TEST-REPORT.md](docs/TEST-REPORT.md)
 

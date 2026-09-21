@@ -42,5 +42,23 @@ class StoryboardTests(unittest.TestCase):
         self.assertTrue(any('speaker does not match' in error for error in errors))
 
 
+class CompletionEvidenceTests(unittest.TestCase):
+    def test_accepted_requires_evidence(self):
+        errors = CHECK_REPO.completion_evidence_errors('ACCEPTED', '')
+        self.assertTrue(any('missing completion evidence' in error for error in errors))
+
+    def test_published_requires_url(self):
+        errors = CHECK_REPO.completion_evidence_errors('PUBLISHED', 'ตรวจโพสต์แล้ว')
+        self.assertTrue(any('post URL' in error for error in errors))
+
+    def test_published_with_url_passes(self):
+        self.assertEqual(
+            CHECK_REPO.completion_evidence_errors(
+                'PUBLISHED', 'https://example.com/post/123'
+            ),
+            [],
+        )
+
+
 if __name__ == '__main__':
     unittest.main()

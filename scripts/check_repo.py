@@ -68,11 +68,12 @@ def local_reference_errors(root, documents):
 
 def required_content_errors(root):
     required = {
-        'WORKFLOW.md': ('Documentary', 'duration plan', 'estimated maximum'),
-        'prompts/MASTER-PROMPT.md': ('Source ledger', 'Documentary', 'single change'),
-        'templates/PRODUCTION.md': ('Duration plan', 'Source ledger', 'เครดิต'),
+        'WORKFLOW.md': ('Documentary', 'duration plan', 'estimated maximum', 'LEAN_SCOPE', 'EVIDENCE_GATE'),
+        'prompts/MASTER-PROMPT.md': ('Source ledger', 'Documentary', 'single change', 'CONTENT_PLAN', 'Completion report'),
+        'templates/PRODUCTION.md': ('Duration plan', 'Source ledger', 'เครดิต', 'V3 control', 'หลักฐาน'),
+        'docs/WORKFLOW-V3.md': ('LEAN_SCOPE', 'CONTENT_PLAN', 'EVIDENCE_GATE', 'NEEDS_HUMAN_REVIEW'),
         'docs/DOCUMENTARY.md': ('FACT_CHECK_PENDING', 'AI_REENACTMENT'),
-        'CHANGELOG.md': ('v2 workflow',),
+        'CHANGELOG.md': ('v3 workflow',),
     }
     errors = []
     for name, markers in required.items():
@@ -85,6 +86,18 @@ def required_content_errors(root):
             if marker not in text:
                 errors.append(f'{name}: missing required marker {marker}')
     return errors
+
+
+def completion_evidence_errors(status, evidence):
+    """Require concrete evidence before terminal workflow states."""
+    terminal = {'ACCEPTED', 'EXPORTED', 'PUBLISHED'}
+    if status not in terminal:
+        return []
+    if not evidence or evidence.strip() in {'—', '-', '[ระบุ]', '[กรอก]'}:
+        return [f'{status}: missing completion evidence']
+    if status == 'PUBLISHED' and not re.search(r'https?://', evidence):
+        return ['PUBLISHED: evidence must include a post URL']
+    return []
 
 
 def hero_errors(path):
@@ -123,6 +136,6 @@ if __name__ == '__main__':
     if not failures:
         print(
             f'PASS: {documents} Markdown files; {links} local references; '
-            '6 shot prompts; 48s timeline; v2 workflow markers; PNG banner'
+            '6 shot prompts; 48s timeline; v3 workflow markers; evidence gate; PNG banner'
         )
     sys.exit(bool(failures))
